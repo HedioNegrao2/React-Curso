@@ -1,8 +1,11 @@
 import React from 'react'
+import PageHeader from '../templet/pageheader'
+
 
 export default props => (
     <div>
-        <h1>Sobre</h1>
+         <PageHeader name='Tarefas ' small=' Cadastro'></PageHeader>   
+        
     </div>    
 
 )
