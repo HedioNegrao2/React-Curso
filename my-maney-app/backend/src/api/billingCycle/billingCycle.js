@@ -1,5 +1,3 @@
-import { WSANOTINITIALISED } from 'constants';
-
 const restfull = require('node-restful')
 const mongoose = restfull.mongoose
 
@@ -10,7 +8,7 @@ const creditSchema = new mongoose.Schema({
 
 const debtSchema =  new mongoose.Schema({
     name: {type: String, required: true },
-    value: {type: Number, min:0, required: true},
+    value: {type: Number, min:0, required: [true,'Informe o valor do débito'] },
     status: {type: String, required:  true, uppercase: true,
         enum: ['PAGO','PENDENTE','AGENDA']}  
 })
@@ -23,4 +21,4 @@ const billingCycleSchema = new mongoose.Schema({
     debts: [debtSchema]    
 })
 
-module.exports = restfull.mode('Billing',billingCycleSchema)
+module.exports = restfull.model('Billing',billingCycleSchema)
